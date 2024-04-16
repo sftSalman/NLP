@@ -172,6 +172,31 @@ Understanding the dimensions of parameter matrices involved in multi-head attent
 
 Multi-head attention allows for efficient parallel computing, enhancing the performance of transformer models. By implementing multi-head attention, computations can be performed in parallel while maintaining computational efficiency.
 
+## Understanding Transformer Decoder Structure
+
+The transformer decoder follows a simple yet powerful structure:
+
+1. **Input Encoding**: Tokenized sentences are embedded using word embeddings, and positional encodings are added to represent the position of each word in the sequence.
+2. **Multi-Headed Attention**: The positional input embeddings undergo multi-headed attention, where each word attends to other positions in the sequence to capture relationships.
+3. **Feed-Forward Layers**: After attention, each word passes through a feed-forward layer, introducing non-linear transformations.
+4. **Residual Connections**: Residual connections are added around each layer of attention and feed-forward layers to aid in training speed and reduce processing time.
+5. **Layer Normalization**: Normalization steps are applied after each layer to speed up training and enhance efficiency.
+6. **Repetition**: The decoder block, consisting of attention and feed-forward layers, is repeated N times to capture complex relationships within the sequence.
+7. **Final Output**: The output of the decoder layer is passed through a fully connected layer to obtain tensors representing the probabilities of each word in the vocabulary.
+
+## Implementation Details
+
+Here's a breakdown of the implementation details:
+
+- **Tokenized Input**: Tokenized sentences are embedded and augmented with positional encodings.
+- **Multi-Headed Attention**: Each word attends to other positions in the sequence, weighted by their importance.
+- **Feed-Forward Layers**: Non-linear transformations are introduced via fully connected feed-forward layers.
+- **Residual Connections**: Residual connections speed up training and enhance efficiency.
+- **Layer Normalization**: Normalization steps ensure stable training and improved convergence.
+- **Repetition**: The decoder block is repeated N times to capture intricate relationships.
+- **Final Output**: The output is passed through a fully connected layer and softmax for cross-entropy loss calculation.
+
+
 
 
 
