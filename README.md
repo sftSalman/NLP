@@ -85,5 +85,43 @@ T5 stands out as a powerful and versatile transformer model capable of performin
 
 
 
+## Overview of Scaled Dot-Product Attention
+
+Scaled dot-product attention is a key operation in transformers, facilitating the calculation of context vectors for each query in a sequence. The mechanism operates as follows:
+
+- **Inputs**: Queries, keys, and values are fed into the attention layer.
+- **Outputs**: Context vectors are generated for each query, representing weighted sums of the values based on the similarity between queries and keys.
+- **Softmax**: Ensures that the weights assigned to values sum up to 1, enhancing interpretability and effectiveness.
+- **Scaling**: Division by the square root of the dimension of the key vectors improves performance.
+
+## Efficiency and Implementation
+
+Scaled dot-product attention is highly efficient, relying solely on matrix multiplication and softmax operations. This simplicity allows for efficient implementation on GPUs or TPUs, accelerating training processes.
+
+To compute the query, key, and value matrices:
+
+- Transform words in sequences into embedding vectors.
+- Construct query matrix using embedding vectors for queries.
+- Form key matrix by stacking embedding vectors for keys.
+- Generate value matrix using the same or transformed vectors as keys.
+
+## Matrix Operations in Scaled Dot-Product Attention
+
+At each time step, the following operations are performed:
+
+1. Compute matrix product between query and transpose of key matrix.
+2. Scale product by inverse square root of key vector dimension.
+3. Apply softmax to obtain weights matrix.
+
+After computation of the weights matrix:
+
+- Multiply it with the value matrix to obtain context vectors for each query.
+
+## Significance in Transformers
+
+Scaled dot-product attention is the backbone of transformer models, enabling efficient capturing of dependencies in sequences. Its simplicity and effectiveness make it indispensable in various NLP tasks.
+
+
+
 
 
