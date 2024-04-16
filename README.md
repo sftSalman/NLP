@@ -1,3 +1,117 @@
+# Understanding Transformer Networks
+
+The transformer network, also known as Transformers, has revolutionized the field of natural language processing (NLP) with its innovative architecture. In the following series of videos, we'll dissect the transformer network step by step to provide you with a comprehensive understanding of its workings.
+
+## Evolution from Sequential Models
+- Started with RNNs but faced issues like vanishing gradients and difficulty capturing long-range dependencies.
+- GRU and LSTM models were introduced to address these problems by incorporating gating mechanisms, but they increased model complexity.
+
+## Introduction to Transformer Architecture
+- Transformer architecture allows for parallel processing of entire sequences.
+- Unlike sequential models, it can process the entire input sentence simultaneously, rather than one word at a time.
+- Major innovation: combining attention-based representations with CNN-style processing.
+
+### Key Contributors and Publication
+- Seminal paper authored by Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan Gomez, Lukasz Kaiser, and Illia Polosukhin.
+- Lukasz Kaiser, one of the inventors of the transformer network, is a co-instructor of the NLP specialization with deep learning at deep learning dot AI.
+
+### Core Concepts
+- **Self-Attention**: Computes rich representations for each word in a sentence in parallel.
+- **Multi-Headed Attention**: A loop over the self-attention process, resulting in multiple versions of representations.
+- These representations are highly effective for various NLP tasks like machine translation.
+
+## Video Series Overview
+1. **Self-Attention**: Exploring the computation of rich representations for words.
+2. **Multi-Headed Attention**: Understanding the process of generating multiple representations.
+3. **Integration**: Putting together the concepts of self-attention and multi-headed attention into the transformer architecture.
+
+# Self-Attention Mechanism of Transformers
+
+The self-attention mechanism is a fundamental component of transformer networks, enabling them to compute attention-based representations for each word in an input sentence. Here's a breakdown of how it works:
+
+## Key Concepts
+- **Attention Representation**: For each word in the input sentence, the goal is to compute an attention-based representation.
+- **Query, Key, and Value**: Three vectors associated with each word, used to compute the attention value.
+- **Parallel Processing**: Unlike RNNs, self-attention computes representations for all words in parallel.
+
+## Computation Steps
+1. **Query, Key, and Value Pairs**: Each word is associated with three values—query, key, and value—computed using learned matrices.
+2. **Inner Product Calculation**: Compute the inner product between the query and key vectors to determine the relevance of each word.
+3. **Softmax Operation**: Apply softmax to obtain attention weights, indicating the importance of each word in the context.
+4. **Weighted Sum**: Multiply softmax values with corresponding value vectors and sum them up to obtain the attention-based representation.
+5. **Result**: Each word now has a rich, context-aware representation, adapting based on surrounding words.
+
+## Advantages
+- **Dynamic Representations**: Enables the model to adapt word embeddings based on context, leading to richer representations.
+- **Parallel Processing**: Computes representations for all words simultaneously, improving efficiency.
+
+## Implementation Overview
+- **Matrix Formulation**: Represented as Attention(Q, K, V), where Q, K, and V matrices contain query, key, and value vectors.
+- **Scaled Dot-Product Attention**: Original attention mechanism used in transformer architecture papers.
+# Multi-Head Attention Mechanism
+
+The multi-head attention mechanism is an extension of the self-attention mechanism introduced in transformers, allowing the model to compute multiple attention-based representations in parallel. Here's a breakdown of how it works:
+
+## Key Concepts
+- **Heads**: Each computation of self-attention for a sequence is called a head.
+- **Parallel Computation**: Multi-head attention involves calculating self-attention multiple times in parallel.
+
+## Computation Steps
+1. **Query, Key, and Value Pairs**: Same as in self-attention, each word is associated with query, key, and value vectors.
+2. **Multiple Heads**: Calculate self-attention multiple times using different sets of weight matrices.
+3. **Concurrent Processing**: Each head computes attention values independently, allowing for parallel computation.
+4. **Concatenation**: Concatenate the results of all heads to obtain a richer representation for each word.
+5. **Output Transformation**: Multiply the concatenated values by a weight matrix to obtain the final multi-head attention output.
+
+## Implementation Overview
+- **Number of Heads**: Represented by the lowercase letter 'h', indicating the number of parallel attention computations.
+- **Feature Representation**: Each head acts as a different feature, contributing to a richer representation of the input sentence.
+
+## Parallel Computation
+- **Efficient Implementation**: While conceptually, each head's computation can be thought of as a loop, in practice, they are computed in parallel.
+- **Concurrent Processing**: No head depends on the result of another, enabling parallel computation for efficiency.
+# Transformer Network Overview
+
+The transformer network combines self-attention and multi-head attention mechanisms to build a powerful architecture for sequence-to-sequence tasks like translation. Here's an overview of how it works:
+
+## Components
+1. **Encoder Block**: 
+   - Receives word embeddings of input sentence.
+   - Utilizes multi-head attention to capture interdependencies between words.
+   - Followed by a feed-forward neural network to extract features.
+   - Typically repeated N times, with N being around 6.
+
+2. **Decoder Block**:
+   - Inputs the start-of-sentence token at the beginning.
+   - Utilizes multi-head attention to generate subsequent words in the translation.
+   - Each step, the decoder queries the input sentence's encoding to predict the next word.
+   - Repeated N times, similar to the encoder block.
+
+## Integration
+- **Input Representation**: In addition to word embeddings, positional encodings are added to convey word positions.
+- **Residual Connections**: Help propagate positional information throughout the architecture.
+- **Normalization Layers**: Similar to batch normalization, aid in learning efficiency.
+
+## Training Process
+- **Masked Multi-Head Attention**: During training, the network is trained to predict subsequent words given correct translations.
+- **Training vs. Prediction**: During training, the entire correct output sequence is available, allowing for parallel prediction. At test time, predictions are made iteratively.
+
+## Additional Enhancements
+- **Positional Encoding**: Utilizes sine and cosine functions to encode word positions.
+- **Residual Connections**: Pass positional information throughout the architecture.
+- **Layer Normalization**: Helps speed up learning.
+- **Linear and Softmax Layers**: Used for predicting the next word in the sequence.
+
+## Summary
+- **Transformer Architecture**: Combines attention mechanisms for efficient sequence-to-sequence tasks.
+- **Training Process**: Utilizes masked attention for training on correct translations.
+- **Future Iterations**: Various iterations like BERT and DistilBERT have built upon the transformer architecture.
+
+Understanding these building blocks is crucial for implementing and customizing transformer models for specific NLP tasks.
+
+
+
+
 # Transformer vs RNN: Why Transformers Reign Supreme
 
 This README delves into the superiority of the transformer model over recurrent neural networks (RNNs) in natural language processing tasks, particularly in the context of neural machine translation.
