@@ -256,6 +256,49 @@ Transfer learning comes in two basic forms:
 
 ## Fine-tuning on Downstream Tasks:
 - Pre-trained models can be fine-tuned for tasks like translation or summarization.
+# ELMo, GPT, BERT, T5: A Chronological Overview
+
+
+## Models Timeline
+1. **Continuous Bag of Words (CBOW) Model**
+2. **ELMo**
+3. **GPT (Generative Pre-trained Transformer)**
+4. **BERT (Bidirectional Encoder Representations from Transformers)**
+5. **T5 (Text-To-Text Transfer Transformer)**
+
+## Model Characteristics and Advantages
+
+### Continuous Bag of Words (CBOW) Model
+- Predicts the central word based on a fixed context window.
+- **Advantages**: Simple architecture, computationally efficient.
+- **Disadvantages**: Limited context, cannot capture long-range dependencies.
+
+### ELMo (Embeddings from Language Models)
+- Utilizes bidirectional LSTMs to predict the central word.
+- **Advantages**: Captures contextual information from both directions.
+- **Disadvantages**: Requires significant computational resources for training.
+
+### GPT (Generative Pre-trained Transformer)
+- Utilizes decoder stacks in the transformer architecture.
+- **Advantages**: Generates coherent and contextually relevant text.
+- **Disadvantages**: Limited to unidirectional context, may struggle with long-range dependencies.
+
+### BERT (Bidirectional Encoder Representations from Transformers)
+- Utilizes encoder stacks in the transformer architecture.
+- Implements bidirectional context with multi-mask language modeling and next sentence prediction.
+- **Advantages**: Captures bidirectional context effectively, achieves state-of-the-art performance on various NLP tasks.
+- **Disadvantages**: Large memory footprint, computationally intensive.
+
+### T5 (Text-To-Text Transfer Transformer)
+- Extends the original transformer architecture with encoder-decoder stacks.
+- Implements mask and multi-task training strategies.
+- **Advantages**: Achieves strong performance across multiple NLP tasks with a single model.
+- **Disadvantages**: Requires significant computational resources for training and fine-tuning.
+
+## Multi-Task Training Strategy
+- Prefixing input text with task-specific strings to guide the model.
+- Example: "classify: This product is excellent" for sentiment analysis, "summarize: This article discusses NLP models" for text summarization.
+- **Advantage**: Enables the same model to perform multiple tasks without task confusion.
 
 
 
