@@ -20,7 +20,7 @@ The transformer network, also known as Transformers, has revolutionized the fiel
 - **Multi-Headed Attention**: A loop over the self-attention process, resulting in multiple versions of representations.
 - These representations are highly effective for various NLP tasks like machine translation.
 
-## Video Series Overview
+##  Overview
 1. **Self-Attention**: Exploring the computation of rich representations for words.
 2. **Multi-Headed Attention**: Understanding the process of generating multiple representations.
 3. **Integration**: Putting together the concepts of self-attention and multi-headed attention into the transformer architecture.
