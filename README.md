@@ -122,6 +122,30 @@ After computation of the weights matrix:
 Scaled dot-product attention is the backbone of transformer models, enabling efficient capturing of dependencies in sequences. Its simplicity and effectiveness make it indispensable in various NLP tasks.
 
 
+## Overview of Attention Mechanisms in Transformers
+
+Transformer models employ various attention mechanisms to capture relationships between words in sequences:
+
+- **Encoder-Decoder Attention**: Words in one sequence attend to all words in another sequence, commonly used in translation tasks.
+- **Self-Attention**: Queries, keys, and values originate from the same sequence, enabling each word to attend to every other word for contextual representation.
+- **Masked Self-Attention**: Similar to self-attention, but queries cannot attend to future positions, ensuring predictions depend only on known outputs.
+
+## Understanding Masked Self-Attention
+
+Masked self-attention is prevalent in decoder layers of transformer models, ensuring that predictions at each position are based only on past information. Here's how it works:
+
+- **Calculation**: Like regular self-attention, masked self-attention involves calculating the softmax of scaled products between queries and the transpose of the key matrix.
+- **Mask Matrix**: A mask matrix is added within the softmax, containing zeros except for positions above the diagonal, set to negative infinity or a very large negative number.
+- **Effect**: This mask ensures that queries cannot attend to future positions, preventing information leakage from future tokens.
+- **Context Generation**: After applying the softmax with the mask, the weights matrix is multiplied by the value matrix to obtain context vectors for each query.
+
+## Importance of Masked Self-Attention
+
+Masked self-attention plays a crucial role in transformer decoder layers, allowing for the generation of predictions based only on past information. This mechanism ensures coherence in sequence generation tasks such as language translation.
+
+
+
+
 
 
 
