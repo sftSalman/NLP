@@ -143,6 +143,34 @@ Masked self-attention is prevalent in decoder layers of transformer models, ensu
 
 Masked self-attention plays a crucial role in transformer decoder layers, allowing for the generation of predictions based only on past information. This mechanism ensures coherence in sequence generation tasks such as language translation.
 
+## Intuition behind Multi-Head Attention
+
+Multi-head attention enhances the capability of transformer models by allowing them to capture multiple relationships between words simultaneously. Here's how it works:
+
+- **Parallel Attention**: Instead of applying attention to a single set of query, key, and value matrices, multi-head attention applies attention mechanisms in parallel to multiple sets.
+- **Number of Heads**: The number of times attention is applied equals the number of heads in the model. Each head utilizes a different set of representations for queries, keys, and values.
+- **Linear Transformations**: Different sets of representations are obtained by linearly transforming the original embeddings using separate sets of matrices for each head.
+
+## Mathematical Operations in Multi-Head Attention
+
+The process of multi-head attention involves the following steps:
+
+1. **Transformation**: Each input matrix (queries, keys, and values) is transformed into multiple vector spaces, corresponding to the number of heads in the model.
+2. **Attention Mechanism**: Scaled dot-product attention is applied independently to each set of transformed matrices.
+3. **Concatenation**: The results from each attention head are concatenated horizontally into a single matrix.
+4. **Linear Transformation**: The concatenated matrix is linearly transformed to obtain the output context vectors.
+
+## Parameter Matrices and Dimensions
+
+Understanding the dimensions of parameter matrices involved in multi-head attention is crucial:
+
+- **Transformation Matrices**: Each linear transformation contains learnable parameters, determining the dimensions of the transformed matrices.
+- **Choice of Sizes**: The dimensions (d_sub_K and d_sub_V) of the transformation matrices can be chosen based on the embedding size and the number of heads in the model.
+- **Computational Efficiency**: Proper choice of sizes ensures that the computational cost of multi-head attention remains comparable to single-head attention.
+
+## Implementation and Parallel Computing
+
+Multi-head attention allows for efficient parallel computing, enhancing the performance of transformer models. By implementing multi-head attention, computations can be performed in parallel while maintaining computational efficiency.
 
 
 
