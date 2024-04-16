@@ -196,6 +196,28 @@ Here's a breakdown of the implementation details:
 - **Repetition**: The decoder block is repeated N times to capture intricate relationships.
 - **Final Output**: The output is passed through a fully connected layer and softmax for cross-entropy loss calculation.
 
+# Transformer Summarizer
+
+## Understanding the Problem
+
+The task at hand is summarization, where the goal is to produce a concise summary of whole news articles. This is achieved using the transformer model, which is well-suited for text generation tasks.
+
+## Data Processing for Summarization
+
+To prepare the data for training the transformer model, the input features are constructed by concatenating the article with the summary. This concatenated text is tokenized into integers, with special tags denoting padding and end-of-sequence (EOS).
+
+## Weighted Loss for Training
+
+During training, a weighted loss function is used to focus the model's attention on the summary portion of the input. This helps the model learn to generate summaries effectively. Additionally, a weighted cross-entropy function is optimized, ignoring words from the article to be summarized.
+
+## Making Inferences with the Model
+
+At test or inference time, the trained model is used to generate summaries. The article is inputted to the model with an EOS token, and the model predicts the next word, iteratively generating the summary until it encounters another EOS token.
+
+
+
+
+
 
 
 
