@@ -214,6 +214,52 @@ During training, a weighted loss function is used to focus the model's attention
 
 At test or inference time, the trained model is used to generate summaries. The article is inputted to the model with an EOS token, and the model predicts the next word, iteratively generating the summary until it encounters another EOS token.
 
+# Transfer Learning in NLP
+
+
+
+## What is Transfer Learning?
+
+Transfer learning comes in two basic forms:
+- **Feature-based learning**: Learning features such as word vectors.
+- **Fine-tuning**: Tweaking existing model weights for specific tasks.
+
+## Transfer Learning Options:
+
+### Pre-trained Data
+- Utilizes labeled and unlabeled data.
+- Pre-training tasks, such as language modeling, involve masking words or predicting the next sentence.
+
+### General-purpose Learning
+- Predicting central words in a sentence, such as using the continuous bag-of-words model.
+- Embeddings can be used as input features for translation tasks.
+
+## Feature-based vs. Fine-tuning:
+
+### Feature-based:
+- Directly using pre-trained word embeddings as input features.
+- Example: Translating from English to German.
+
+### Fine-tuning:
+- Adapting pre-trained models to specific tasks by updating weights.
+- Example: Tuning pre-trained models for translation or summarization.
+
+## Data and Model Size:
+- More data and larger models lead to better performance.
+- Larger models can capture task nuances effectively.
+
+## Labeled vs. Unlabeled Data:
+- Unlabeled data is abundant and used for self-supervised tasks like language modeling.
+
+## Self-Supervised Learning:
+- Creating input features and targets from unlabeled data for tasks like predicting masked words.
+
+## Fine-tuning on Downstream Tasks:
+- Pre-trained models can be fine-tuned for tasks like translation or summarization.
+
+
+
+
 
 
 
