@@ -1,3 +1,6 @@
+
+![TR](https://github.com/sftSalman/NLP/assets/33355278/e8c32461-3bda-4ef3-bb37-56d0108d9f95)
+
 # Understanding Transformer Networks
 
 The transformer network, also known as Transformers, has revolutionized the field of natural language processing (NLP) with its innovative architecture. In the following series of videos, we'll dissect the transformer network step by step to provide you with a comprehensive understanding of its workings.
